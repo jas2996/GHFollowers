@@ -51,8 +51,9 @@ class FollowerListVC: UIViewController {
 //        }
         
 //       MARK: - using Result type (Swift 5)
-        NetworkManager.shared.getFollowers(for: username, page: 1) { result in
-            
+        NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in
+            // review ARC (automatic reference counting)
+            guard let self = self else { return }
             switch result {
             case .success(let followers):
                 print("Followers.count = \(followers.count)")
@@ -66,26 +67,10 @@ class FollowerListVC: UIViewController {
     }
     
     func configureCollectionView() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createThreeColumnFolowLayout())
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFolowLayout(in: view))
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemBackground
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
-    }
-    
-    func createThreeColumnFolowLayout() -> UICollectionViewLayout {
-        //this is how the collection view will look like
-        let width = view.bounds.width
-        let padding: CGFloat = 12 //left and right side of the screen
-        let minimumItemSpacing: CGFloat = 10 //between each cell
-        let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
-        let itemWidth = availableWidth / 3
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
-        //height includes the avatar image and also the username label
-        
-        return flowLayout
     }
     
     func configureDataSource() {
