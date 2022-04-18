@@ -32,5 +32,6 @@ class GFAvatarImageView: UIImageView {
         layer.cornerRadius = 10
         clipsToBounds = true //allows the image to be rounded too
         image = placeholderImage
+        translatesAutoresizingMaskIntoConstraints = false //important to always include this
     }
 }
