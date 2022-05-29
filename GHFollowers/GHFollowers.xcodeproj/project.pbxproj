@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15DE64F5284400E0008B9A91 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE64F4284400E0008B9A91 /* UIHelper.swift */; };
 		9C35867127C5B6180034F7C7 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35867027C5B6180034F7C7 /* GFButton.swift */; };
 		9C35867327C5B7FA0034F7C7 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35867227C5B7FA0034F7C7 /* GFTextField.swift */; };
 		9C35867527C5BF9E0034F7C7 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35867427C5BF9E0034F7C7 /* FollowerListVC.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15DE64F4284400E0008B9A91 /* UIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		9C35867027C5B6180034F7C7 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		9C35867227C5B7FA0034F7C7 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		9C35867427C5BF9E0034F7C7 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		9CE426D227F0E3DC00C8BBAE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				15DE64F4284400E0008B9A91 /* UIHelper.swift */,
 				9CE426D327F0E3F000C8BBAE /* GFError.swift */,
 			);
 			path = Utilities;
@@ -245,6 +248,7 @@
 				9C7567CA27C4778E00A4B976 /* FavoritesListVC.swift in Sources */,
 				9C35867127C5B6180034F7C7 /* GFButton.swift in Sources */,
 				9CE9EDEA27DE808A00610E4B /* UIViewController+Ext.swift in Sources */,
+				15DE64F5284400E0008B9A91 /* UIHelper.swift in Sources */,
 				9CE426D927F0E9F300C8BBAE /* GFAvatarImageView.swift in Sources */,
 				9C7567C827C4771000A4B976 /* SearchVC.swift in Sources */,
 				9CE9EDE827DE7CA100610E4B /* GFAlertVC.swift in Sources */,
