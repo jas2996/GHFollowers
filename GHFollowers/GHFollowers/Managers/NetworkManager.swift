@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkManager {
     // singleton class, review pros and cons
@@ -15,6 +16,7 @@ class NetworkManager {
     
     static let shared = NetworkManager() //make it a sharable resource, static means that every network manager if will have this instance
     let baseUrl = "https://api.github.com/users/"
+    let cache = NSCache<NSString, UIImage>() //NS stands for NextStep, Steve Jobs company after he got fired from Apple lol
     
     private init() {} // create the singleton
     //without using Result type (Swift 5)
