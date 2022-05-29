@@ -55,13 +55,16 @@ class FollowerListVC: UIViewController {
 //        }
         
 //       MARK: - using Result type (Swift 5)
+        showLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
+            #warning("Call dismiss")
             // explain memory management in swift
             // review ARC (automatic reference counting)
             // solves memory call, commonly used in network manager
             
             //you can use unowned instead of weak and it well unrap self on its own, can be dangeours
             guard let self = self else { return }
+            self.dismissLoadingView()
             switch result {
             case .success(let followers):
                 print("Followers.count = \(followers.count)")
