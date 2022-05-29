@@ -9,6 +9,7 @@ import UIKit
 
 class FollowerListVC: UIViewController {
     
+    //enums are hashable by default
     enum Section {
         case main
     }
@@ -69,7 +70,7 @@ class FollowerListVC: UIViewController {
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFolowLayout(in: view))
         view.addSubview(collectionView)
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = .systemPink
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
@@ -88,6 +89,7 @@ class FollowerListVC: UIViewController {
         snapshot.appendItems(followers)
         
         DispatchQueue.main.async {
+            // don't run it on the background thread, run it on the main thread
             self.dataSource.apply(snapshot, animatingDifferences: true)
         }
     }

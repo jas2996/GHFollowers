@@ -10,7 +10,7 @@ import UIKit
 struct UIHelper {
     static func createThreeColumnFolowLayout(in view: UIView) -> UICollectionViewLayout {
         //this is how the collection view will look like
-        let width = view.bounds.width
+        let width = view.bounds.width //width of phone screen
         let padding: CGFloat = 12 //left and right side of the screen
         let minimumItemSpacing: CGFloat = 10 //between each cell
         let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
