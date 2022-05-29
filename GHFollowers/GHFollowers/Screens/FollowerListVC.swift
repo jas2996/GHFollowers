@@ -53,7 +53,11 @@ class FollowerListVC: UIViewController {
         
 //       MARK: - using Result type (Swift 5)
         NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in
+            // explain memory management in swift
             // review ARC (automatic reference counting)
+            // solves memory call, commonly used in network manager
+            
+            //you can use unowned instead of weak and it well unrap self on its own, can be dangeours
             guard let self = self else { return }
             switch result {
             case .success(let followers):
@@ -70,7 +74,7 @@ class FollowerListVC: UIViewController {
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFolowLayout(in: view))
         view.addSubview(collectionView)
-        collectionView.backgroundColor = .systemPink
+        collectionView.backgroundColor = .systemBackground
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     

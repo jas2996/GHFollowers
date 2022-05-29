@@ -6,6 +6,7 @@
 //
 
 import UIKit
+// if you import UIKit, Foundation comes with it also
 
 struct UIHelper {
     static func createThreeColumnFolowLayout(in view: UIView) -> UICollectionViewLayout {
