@@ -16,6 +16,9 @@ class FollowerListVC: UIViewController {
     
     var username: String! //get ready to accept username from SearchVC
     var followers: [Follower] = []
+    var page = 1
+    var hasMoreFollowers = true
+    
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
 
@@ -23,7 +26,7 @@ class FollowerListVC: UIViewController {
         super.viewDidLoad()
         configureViewController()
         configureCollectionView()
-        getFollowers()
+        getFollowers(username: username, page: page)
         configureDataSource()
     }
     
@@ -38,7 +41,7 @@ class FollowerListVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true //we want large title instead of old small title
     }
     
-    func getFollowers() {
+    func getFollowers(username: String, page: Int) {
 //        MARK: - without using Result type (Swift 5)
 //        NetworkManager.shared.getFollowers(for: username, page: 1) { followers, errorMessage in
 //            guard let followers = followers else {
@@ -52,7 +55,7 @@ class FollowerListVC: UIViewController {
 //        }
         
 //       MARK: - using Result type (Swift 5)
-        NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in
+        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             // explain memory management in swift
             // review ARC (automatic reference counting)
             // solves memory call, commonly used in network manager
@@ -62,8 +65,9 @@ class FollowerListVC: UIViewController {
             switch result {
             case .success(let followers):
                 print("Followers.count = \(followers.count)")
-                print(followers)
-                self.followers = followers
+                
+                if followers.count < 100 { self.hasMoreFollowers = false }
+                self.followers.append(contentsOf: followers)
                 self.updateData()
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Bad stuff happened", message: error.rawValue, buttonTitle: "Ok")
@@ -74,6 +78,7 @@ class FollowerListVC: UIViewController {
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFolowLayout(in: view))
         view.addSubview(collectionView)
+        collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
@@ -97,6 +102,23 @@ class FollowerListVC: UIViewController {
             self.dataSource.apply(snapshot, animatingDifferences: true)
         }
     }
+}
 
+extension FollowerListVC: UICollectionViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        print("OffsetY = \(offsetY)")
+        print("ContentHeight = \(contentHeight)")
+        print("Height = \(height)")
+        
+        if offsetY > contentHeight - height {
+            guard hasMoreFollowers else { return }
+            page += 1
+            getFollowers(username: username, page: page)
+        }
+    }
 }
 
