@@ -65,6 +65,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15DE64F628444148008B9A91 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		15DE64F72844414E008B9A91 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				9C35867027C5B6180034F7C7 /* GFButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		15DE64F828444155008B9A91 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				9C35867227C5B7FA0034F7C7 /* GFTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		15DE64F928444162008B9A91 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9CE9EDE727DE7CA100610E4B /* GFAlertVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		15DE64FA28444169008B9A91 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				9CE9EDE327DE7B5300610E4B /* GFTitleLabel.swift */,
+				9CE9EDE527DE7C2500610E4B /* GFBodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		15DE64FB284441A5008B9A91 /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				9CE426D827F0E9F300C8BBAE /* GFAvatarImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
 		9C7567A727C4719E00A4B976 = {
 			isa = PBXGroup;
 			children = (
@@ -126,13 +174,13 @@
 		9CE9EDEC27DE824400610E4B /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				15DE64FB284441A5008B9A91 /* ImageViews */,
+				15DE64FA28444169008B9A91 /* Labels */,
+				15DE64F928444162008B9A91 /* ViewControllers */,
+				15DE64F828444155008B9A91 /* TextFields */,
+				15DE64F72844414E008B9A91 /* Buttons */,
+				15DE64F628444148008B9A91 /* Views */,
 				9CE426D527F0E98900C8BBAE /* Cells */,
-				9CE9EDE327DE7B5300610E4B /* GFTitleLabel.swift */,
-				9CE9EDE527DE7C2500610E4B /* GFBodyLabel.swift */,
-				9C35867027C5B6180034F7C7 /* GFButton.swift */,
-				9C35867227C5B7FA0034F7C7 /* GFTextField.swift */,
-				9CE9EDE727DE7CA100610E4B /* GFAlertVC.swift */,
-				9CE426D827F0E9F300C8BBAE /* GFAvatarImageView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
