@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15DE64F5284400E0008B9A91 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE64F4284400E0008B9A91 /* UIHelper.swift */; };
+		15DE64FD284441DB008B9A91 /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE64FC284441DB008B9A91 /* GFEmptyStateView.swift */; };
 		9C35867127C5B6180034F7C7 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35867027C5B6180034F7C7 /* GFButton.swift */; };
 		9C35867327C5B7FA0034F7C7 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35867227C5B7FA0034F7C7 /* GFTextField.swift */; };
 		9C35867527C5BF9E0034F7C7 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35867427C5BF9E0034F7C7 /* FollowerListVC.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		15DE64F4284400E0008B9A91 /* UIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		15DE64FC284441DB008B9A91 /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
 		9C35867027C5B6180034F7C7 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		9C35867227C5B7FA0034F7C7 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		9C35867427C5BF9E0034F7C7 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		15DE64F628444148008B9A91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				15DE64FC284441DB008B9A91 /* GFEmptyStateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				9CE9EDE627DE7C2500610E4B /* GFBodyLabel.swift in Sources */,
 				9CE9EDF127DE8E0B00610E4B /* Follower.swift in Sources */,
 				9CE9EDE427DE7B5300610E4B /* GFTitleLabel.swift in Sources */,
+				15DE64FD284441DB008B9A91 /* GFEmptyStateView.swift in Sources */,
 				9CE9EDF627DE92E300610E4B /* NetworkManager.swift in Sources */,
 				9C35867527C5BF9E0034F7C7 /* FollowerListVC.swift in Sources */,
 				9C7567B427C4719E00A4B976 /* AppDelegate.swift in Sources */,
