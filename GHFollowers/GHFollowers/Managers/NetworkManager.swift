@@ -122,6 +122,8 @@ class NetworkManager {
     }
     
     func getUserInfo(for username: String, completed: @escaping (Result<User, GFError>) -> Void) {
+        
+        // escapting closure can outlive this getUserInfo method, mainly used for async stuff
         let endpoint = baseUrl + "\(username)"
         
         guard let url = URL(string: endpoint) else {
