@@ -13,7 +13,7 @@ class GFHeaderInfoVC: UIViewController {
     let userNameLabel = GFTitleLabel(textAlignment: .left, fontSize: 34)
     let nameLabel = GFSecondaryTitleLabel(fontSize: 18)
     let locationImageView = UIImageView()
-    let localtionLabel = GFSecondaryTitleLabel(fontSize: 18)
+    let locationLabel = GFSecondaryTitleLabel(fontSize: 18)
     let bioLabel = GFBodyLabel(textAlignment: .left)
     
     var user: User!
@@ -38,7 +38,7 @@ class GFHeaderInfoVC: UIViewController {
         avatarImageView.downloadImage(from: user.avatarUrl)
         userNameLabel.text = user.login
         nameLabel.text = user.name ?? ""
-        localtionLabel.text = user.location ?? "No location"
+        locationLabel.text = user.location ?? "No location"
         bioLabel.text = user.bio ?? "No bio available"
         bioLabel.numberOfLines = 3
         
@@ -51,7 +51,7 @@ class GFHeaderInfoVC: UIViewController {
         view.addSubview(userNameLabel)
         view.addSubview(nameLabel)
         view.addSubview(locationImageView)
-        view.addSubview(localtionLabel)
+        view.addSubview(locationLabel)
         view.addSubview(bioLabel)
     }
     
@@ -81,10 +81,10 @@ class GFHeaderInfoVC: UIViewController {
             locationImageView.widthAnchor.constraint(equalToConstant: 20),
             locationImageView.heightAnchor.constraint(equalToConstant: 20),
             
-            localtionLabel.centerYAnchor.constraint(equalTo: locationImageView.centerYAnchor),
-            localtionLabel.leadingAnchor.constraint(equalTo: locationImageView.trailingAnchor, constant: 5),
-            localtionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            localtionLabel.heightAnchor.constraint(equalToConstant: 20),
+            locationLabel.centerYAnchor.constraint(equalTo: locationImageView.centerYAnchor),
+            locationLabel.leadingAnchor.constraint(equalTo: locationImageView.trailingAnchor, constant: 5),
+            locationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            locationLabel.heightAnchor.constraint(equalToConstant: 20),
             
             bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: textImagePadding),
             bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
