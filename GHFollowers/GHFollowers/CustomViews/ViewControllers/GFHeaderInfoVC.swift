@@ -1,0 +1,96 @@
+//
+//  GFHeaderInfoVC.swift
+//  GHFollowers
+//
+//  Created by Jas Lamba on 2022-06-05.
+//
+
+import UIKit
+
+class GFHeaderInfoVC: UIViewController {
+    
+    let avatarImageView = GFAvatarImageView(frame: .zero)
+    let userNameLabel = GFTitleLabel(textAlignment: .left, fontSize: 34)
+    let nameLabel = GFSecondaryTitleLabel(fontSize: 18)
+    let localationImageView = UIImageView()
+    let localtionLabel = GFSecondaryTitleLabel(fontSize: 18)
+    let bioLabel = GFBodyLabel(textAlignment: .left)
+    
+    var user: User!
+    
+    init(user: User) {
+        super.init(nibName: nil, bundle: nil)
+        self.user = user
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addSubviews()
+        layoutUI()
+        configureUIElements()
+    }
+    
+    func configureUIElements() {
+        avatarImageView.downloadImage(from: user.avatarUrl)
+        userNameLabel.text = user.login
+        nameLabel.text = user.name ?? ""
+        localtionLabel.text = user.location ?? "No location"
+        bioLabel.text = user.bio ?? "No bio available"
+        bioLabel.numberOfLines = 3
+        
+        localationImageView.image = UIImage(systemName: SFSymbols.location)
+        localationImageView.tintColor = .secondaryLabel
+    }
+    
+    func addSubviews() {
+        view.addSubview(avatarImageView)
+        view.addSubview(userNameLabel)
+        view.addSubview(nameLabel)
+        view.addSubview(localationImageView)
+        view.addSubview(localtionLabel)
+        view.addSubview(bioLabel)
+    }
+    
+    func layoutUI() {
+        let padding: CGFloat = 10
+        let textImagePadding: CGFloat = 12
+        localationImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            avatarImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
+            avatarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 90),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 90),
+            
+            userNameLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
+            userNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: textImagePadding),
+            userNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            userNameLabel.heightAnchor.constraint(equalToConstant: 38),
+            
+            nameLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor, constant: 8),
+            nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: textImagePadding),
+            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            nameLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            localationImageView.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor),
+            localationImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: textImagePadding),
+            localationImageView.widthAnchor.constraint(equalToConstant: 20),
+            localationImageView.heightAnchor.constraint(equalToConstant: 20),
+            
+            localtionLabel.centerYAnchor.constraint(equalTo: localationImageView.centerYAnchor),
+            localtionLabel.leadingAnchor.constraint(equalTo: localationImageView.trailingAnchor, constant: 5),
+            localtionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            localtionLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: textImagePadding),
+            bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor, constant: textImagePadding),
+            bioLabel.trailingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: -padding),
+            bioLabel.heightAnchor.constraint(equalToConstant: 60)
+        ])
+    }
+
+}
