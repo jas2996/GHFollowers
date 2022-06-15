@@ -10,4 +10,8 @@ import Foundation
 
 enum SFSymbols {
     static let location = "mappin.and.ellipse"
+    static let repos = "folder"
+    static let gist = "text.alignleft"
+    static let following = "persion.2"
+    static let followers = "heart"
 }
