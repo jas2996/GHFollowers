@@ -42,4 +42,9 @@ class GFButton: UIButton {
         //https://github.com/cocoacontrols/SemanticUI
         translatesAutoresizingMaskIntoConstraints = false // use autolayout
     }
+    
+    func set(backgroundColor: UIColor, title: String) {
+        self.backgroundColor = backgroundColor
+        setTitle(title, for: .normal)
+    }
 }
