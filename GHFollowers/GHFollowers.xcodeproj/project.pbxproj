@@ -83,6 +83,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15DDAAFF285AA8FF003D066E /* ItemInfoVCs */ = {
+			isa = PBXGroup;
+			children = (
+				15DDAAF9285AA49F003D066E /* GFItemInfoVC.swift */,
+				15DDAAFB285AA6C7003D066E /* GFRepoItemVC.swift */,
+				15DDAAFD285AA89C003D066E /* GFFollowerItemVC.swift */,
+			);
+			path = ItemInfoVCs;
+			sourceTree = "<group>";
+		};
 		15DE64F628444148008B9A91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,11 +121,9 @@
 		15DE64F928444162008B9A91 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				15DDAAFF285AA8FF003D066E /* ItemInfoVCs */,
 				9CE9EDE727DE7CA100610E4B /* GFAlertVC.swift */,
 				15916ABD284D523000DFC22F /* GFHeaderInfoVC.swift */,
-				15DDAAF9285AA49F003D066E /* GFItemInfoVC.swift */,
-				15DDAAFB285AA6C7003D066E /* GFRepoItemVC.swift */,
-				15DDAAFD285AA89C003D066E /* GFFollowerItemVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
