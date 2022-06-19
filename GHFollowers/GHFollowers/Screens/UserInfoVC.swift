@@ -21,6 +21,7 @@ class UserInfoVC: UIViewController {
     var itemViews: [UIView] = []
     
     var username: String!
+    weak var delegate: FollowerListVCDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,12 +122,20 @@ extension UserInfoVC: UserInfoVCDelegate {
         guard let url = URL(string: user.htmlUrl) else {
             presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
             return
-        }        
+        }
+        
+        presentSafariVC(with: url)
     }
     
     func didTapGitHubFollowers(for user: User) {
         //dismissvc
         //tell follower list screen the new user
-        print("github follower button tapped")
+        
+        guard user.followers != 0 else {
+            presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers. What a shame. 😢", buttonTitle: "Ok")
+            return
+        }
+        delegate.didRequestFollowers(for: user.login)
+        dismissVC()
     }
 }
