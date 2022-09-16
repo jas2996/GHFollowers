@@ -52,7 +52,7 @@ class FollowerListVC: UIViewController {
     }
     
     @objc func addButtonTapped() {
-        
+        print("Add button tapped")
     }
     
     func configureCollectionView() {
