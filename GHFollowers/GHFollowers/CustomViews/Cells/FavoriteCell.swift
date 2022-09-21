@@ -40,10 +40,10 @@ class FavoriteCell: UITableViewCell {
             avatarImageView.heightAnchor.constraint(equalToConstant: 60),
             avatarImageView.widthAnchor.constraint(equalToConstant: 60),
             
-            avatarImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            avatarImageView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 24),
-            avatarImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
-            avatarImageView.heightAnchor.constraint(equalToConstant: 40)
+            usernameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            usernameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 24),
+            usernameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            usernameLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
