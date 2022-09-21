@@ -17,44 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = createTabBar()
+        window?.rootViewController = GFTabBarController()
         window?.makeKeyAndVisible()
         
         configureNavigationBar()
 //        UINavigationBar.appearance().backgroundColor = .systemGray
-    }
-    
-    func createSearchNavigationController() -> UINavigationController {
-        let searchVC = SearchVC()
-        searchVC.title = "Search"
-        searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
-        
-        let navBarAppearence = UINavigationBarAppearance()
-        navBarAppearence.configureWithOpaqueBackground()
-        UINavigationBar.appearance().standardAppearance = navBarAppearence
-        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearence
-        
-        return UINavigationController(rootViewController: searchVC)
-    }
-    
-    func createFavoritesListNavigationController() -> UINavigationController {
-        let favoritesListVC = FavoritesListVC()
-        favoritesListVC.title = "Favorites"
-        favoritesListVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
-        
-        return UINavigationController(rootViewController: favoritesListVC)
-    }
-    
-    func createTabBar() -> UITabBarController {
-        let tabBar = UITabBarController()
-        let tabBarAppearance = UITabBarAppearance()
-        tabBarAppearance.configureWithOpaqueBackground()
-        UITabBar.appearance().standardAppearance = tabBarAppearance
-        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-        UITabBar.appearance().barTintColor = .systemGreen
-        tabBar.viewControllers = [createSearchNavigationController(), createFavoritesListNavigationController()]
-        
-        return tabBar
     }
     
     func configureNavigationBar() {
