@@ -33,12 +33,13 @@ class SearchVC: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true //just hide the nav bar
         // doing it in viewWillAppear lifecycle method because we want to hide EACH time screen appears
-        // instead of oads
+        // instead of loads
+        usernameTextField.text = ""
     }
     
     func createDismissKeyboardTapGesture() {
         //tap anywhere on the screen to dismiss keyboard
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         // #selector is action
         view.addGestureRecognizer(tap)
     }
@@ -49,6 +50,9 @@ class SearchVC: UIViewController {
             presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for 😀", buttonTitle: "Ok")
             return
         }
+        
+        usernameTextField.resignFirstResponder()
+        
         let followerListVC = FollowerListVC()
         followerListVC.username = usernameTextField.text //pass username to FollowerListVC
         followerListVC.title = usernameTextField.text
@@ -58,7 +62,7 @@ class SearchVC: UIViewController {
     func configureLogoImageView() {
         view.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false //use autolayoure
-        logoImageView.image = UIImage(named: "gh-logo")!
+        logoImageView.image = Images.ghLogo
         
         let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
         logoImageTopConstraint = logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant)

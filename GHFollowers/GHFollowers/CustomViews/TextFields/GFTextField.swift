@@ -38,6 +38,8 @@ class GFTextField: UITextField {
         keyboardType = .default
         returnKeyType = .go
         //return key will be "go" instead of defualt "return" text
+        
+        clearButtonMode = .whileEditing
         placeholder = "Enter a username"
     }
 
