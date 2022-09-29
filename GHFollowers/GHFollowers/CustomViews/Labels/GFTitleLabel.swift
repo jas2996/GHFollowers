@@ -8,28 +8,21 @@
 import UIKit
 
 class GFTitleLabel: UILabel {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: frame) //designated intializer
+        configure() 
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(textAlignment: NSTextAlignment, fontSize: CGFloat) {
-        super.init(frame: .zero)
+    convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat) {
+        // convenience has to call one of the designated intializer
+        self.init(frame: .zero)
         self.textAlignment = textAlignment
         self.font = UIFont.systemFont(ofSize: fontSize, weight: .bold) //always have bold weight
-        configure()
     }
     
     private func configure() {
