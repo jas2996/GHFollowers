@@ -8,15 +8,17 @@
 import UIKit
 
 enum SFSymbols {
-    static let location = "mappin.and.ellipse"
-    static let repos = "folder"
-    static let gist = "text.alignleft"
-    static let following = "person.2"
-    static let followers = "heart"
+    static let location = UIImage(systemName: "mappin.and.ellipse")
+    static let repos = UIImage(systemName: "folder")
+    static let gist = UIImage(systemName: "text.alignleft") 
+    static let following = UIImage(systemName: "person.2")
+    static let followers = UIImage(systemName: "heart")
 }
 
 enum Images {
+    static let placeholderImage = UIImage(named: "avatar-placeholder")
     static let ghLogo = UIImage(named: "gh-logo")
+    static let emptyStateLogo = UIImage(named: "empty-state-logo")
 }
 
 enum ScreenSize {
