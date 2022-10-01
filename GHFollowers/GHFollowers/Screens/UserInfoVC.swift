@@ -8,8 +8,7 @@
 import UIKit
 
 protocol UserInfoVCDelegate: class {
-    func didTapGitHubProfile(for user: User)
-    func didTapGitHubFollowers(for user: User)
+    func didRequestFollowers(for username: String)
 }
 
 class UserInfoVC: UIViewController {
@@ -21,7 +20,7 @@ class UserInfoVC: UIViewController {
     var itemViews: [UIView] = []
     
     var username: String!
-    weak var delegate: FollowerListVCDelegate!
+    weak var delegate: UserInfoVCDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,7 +115,7 @@ class UserInfoVC: UIViewController {
 
 }
 
-extension UserInfoVC: UserInfoVCDelegate {
+extension UserInfoVC: ItemInfoVCDelegate {
     func didTapGitHubProfile(for user: User) {
         //show safari view controller
         guard let url = URL(string: user.htmlUrl) else {
