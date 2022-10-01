@@ -61,7 +61,7 @@ class UserInfoVC: UIViewController {
         let followerItemVC = GFFollowerItemVC(user: user)
         followerItemVC.delegate = self
         
-        self.add(childVC: GFHeaderInfoVC(user: user), to: self.headerView)
+        self.add(childVC: GFUserInfoHeaderInfoVC(user: user), to: self.headerView)
         self.add(childVC: repoItemVC, to: self.itemViewOne)
         self.add(childVC: followerItemVC, to: self.itemViewTwo)
         

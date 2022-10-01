@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GFHeaderInfoVC: UIViewController {
+class GFUserInfoHeaderInfoVC: UIViewController {
     
     let avatarImageView = GFAvatarImageView(frame: .zero)
     let userNameLabel = GFTitleLabel(textAlignment: .left, fontSize: 34)
