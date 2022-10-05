@@ -7,8 +7,23 @@
 
 import UIKit
 
-class GFFollowerItemVC: GFItemInfoVC {
+protocol GFFollowerItemVCDelegate: class {
+    func didTapGitHubFollowers(for user: User)
+}
 
+class GFFollowerItemVC: GFItemInfoVC {
+    //delegates need to be weak so you can avoid retain cycle
+    weak var delegate: GFFollowerItemVCDelegate!
+    
+    init(user: User, delegate: GFFollowerItemVCDelegate ) {
+        super.init(user: user)
+        self.delegate = delegate
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
